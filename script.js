@@ -135,11 +135,23 @@ function startPolling() {
                 throw new Error(`Failed to get status: ${response.status}`);
             }
             
+            // Check if response is JSON
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                console.warn('Non-JSON response received, skipping this poll...');
+                return; // Skip this poll, try again next interval
+            }
+            
             const statusData = await response.json();
             handleStatusUpdate(statusData, attempts, maxAttempts);
             
         } catch (error) {
             console.error('Polling error:', error);
+            // Only stop polling and show error if it's not a parsing issue
+            if (error.message.includes('JSON') || error.message.includes('pattern')) {
+                console.warn('JSON parse error, will retry on next poll...');
+                return; // Don't stop polling, just skip this attempt
+            }
             stopPolling();
             showError(`Error checking status: ${error.message}`);
             enableInput();
