@@ -1,6 +1,6 @@
 // Configuration
 const CONFIG_KEY = 'ai_video_generator_backend_url';
-let BACKEND_URL = localStorage.getItem(CONFIG_KEY) || '';
+let BACKEND_URL = localStorage.getItem(CONFIG_KEY) || 'https://calcarate-denny-vogie.ngrok-free.dev';
 
 // DOM Elements
 const promptInput = document.getElementById('prompt-input');
