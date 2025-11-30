@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 AI Video Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 AI Video Generator</h1>
+            <p class="subtitle">Generate educational videos with AI-powered narration</p>
+        </header>
+
+        <div class="divider"></div>
+
+        <section class="info-section">
+            <p class="description">
+                Enter a topic or question below and AI will generate an educational video with narration.
+            </p>
+            <div class="examples">
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li>How does photosynthesis work?</li>
+                    <li>What is blockchain technology?</li>
+                    <li>Explain quantum entanglement</li>
+                    <li>How to tie a tie</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="input-section">
+            <div class="form-group">
+                <label for="prompt-input">Enter your prompt:</label>
+                <input 
+                    type="text" 
+                    id="prompt-input" 
+                    placeholder="e.g., How does photosynthesis work?"
+                    aria-label="Video generation prompt"
+                >
+            </div>
+            
+            <button id="generate-btn" class="btn-primary">
+                🎬 Generate Video
+            </button>
+        </section>
+
+        <section id="status-section" class="status-section hidden">
+            <div class="status-container">
+                <div id="status-message" class="status-message">
+                    ⏳ Processing...
+                </div>
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <div id="progress-text" class="progress-text">
+                    Initializing...
+                </div>
+            </div>
+        </section>
+
+        <section id="video-section" class="video-section hidden">
+            <div class="divider"></div>
+            <h2>🎥 Your Generated Video</h2>
+            <div class="video-container">
+                <video id="video-player" controls>
+                    <source id="video-source" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <button id="download-btn" class="btn-secondary">
+                ⬇️ Download Video
+            </button>
+        </section>
+
+        <div id="error-section" class="error-section hidden">
+            <div class="error-message">
+                <span class="error-icon">❌</span>
+                <span id="error-text"></span>
+            </div>
+        </div>
+
+        <footer>
+            <div class="divider"></div>
+            <p class="footer-text">
+                🤖 Powered by Veo 3 Fast, GPT-4, and ElevenLabs<br>
+                <small>Videos are 8-24 seconds in 720p format</small>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Configuration Modal -->
+    <div id="config-modal" class="modal">
+        <div class="modal-content">
+            <h2>⚙️ Configuration Required</h2>
+            <p>Please enter your backend API URL:</p>
+            <input 
+                type="text" 
+                id="api-url-input" 
+                placeholder="https://your-backend-api.com"
+                value="http://localhost:8000"
+            >
+            <button id="save-config-btn" class="btn-primary">Save Configuration</button>
+            <p class="config-note">
+                <small>This URL will be saved in your browser's local storage.</small>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
