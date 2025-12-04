@@ -91,14 +91,30 @@ h2 {
     margin-bottom: 10px;
 }
 
-.examples ul {
-    list-style-position: inside;
-    color: var(--text-light);
+.example-videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 15px;
 }
 
-.examples li {
-    margin-bottom: 8px;
-    padding-left: 10px;
+.example-video {
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.example-video iframe {
+    border-radius: 6px;
+    display: block;
+}
+
+.video-caption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.4;
 }
 
 /* Input Section */
@@ -256,23 +272,6 @@ input[type="text"]:focus {
     font-size: 1.5rem;
 }
 
-/* Footer */
-footer {
-    margin-top: 40px;
-}
-
-.footer-text {
-    text-align: center;
-    color: var(--text-light);
-    padding: 20px 0;
-}
-
-.footer-text small {
-    display: block;
-    margin-top: 8px;
-    font-size: 0.85rem;
-}
-
 /* Utility Classes */
 .hidden {
     display: none !important;
@@ -362,6 +361,10 @@ footer {
 
     h2 {
         font-size: 1.5rem;
+    }
+
+    .example-videos {
+        grid-template-columns: 1fr;
     }
 }
 

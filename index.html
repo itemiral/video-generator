@@ -12,26 +12,26 @@
             <h1>🎬 AI Video Generator</h1>
             <p class="subtitle">Generate educational videos with AI-powered narration</p>
         </header>
-
         <div class="divider"></div>
-
         <section class="info-section">
             <p class="description">
                 Enter a topic or question below and AI will generate an educational video with narration.
             </p>
             <div class="examples">
-                <p><strong>Examples:</strong></p>
-                <ul>
-                    <li>How does photosynthesis work?</li>
-                    <li>What is blockchain technology?</li>
-                    <li>Explain quantum entanglement</li>
-                    <li>How to tie a tie</li>
-                </ul>
+                <p><strong>Example Videos:</strong></p>
+                <div class="example-videos">
+                    <div class="example-video">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/RJAV2rZnUm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p class="video-caption"><em>Prompt: How to cook the pancakes in the modern vs primitive setting</em></p>
+                    </div>
+                    <div class="example-video">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/_NRUqmEfUOM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p class="video-caption"><em>Prompt: Need help with two things: 1. I want a recipe to make pancakes from scratch 2. I want to set a theme for the pancakes and need suggestions on how to incorporate other ingredients. My first theme is halloween.</em></p>
+                    </div>
+                </div>
             </div>
         </section>
-
         <div class="divider"></div>
-
         <section class="input-section">
             <div class="form-group">
                 <label for="prompt-input">Enter your prompt:</label>
@@ -47,7 +47,6 @@
                 🎬 Generate Video
             </button>
         </section>
-
         <section id="status-section" class="status-section hidden">
             <div class="status-container">
                 <div id="status-message" class="status-message">
@@ -61,7 +60,6 @@
                 </div>
             </div>
         </section>
-
         <section id="video-section" class="video-section hidden">
             <div class="divider"></div>
             <h2>🎥 Your Generated Video</h2>
@@ -75,23 +73,13 @@
                 ⬇️ Download Video
             </button>
         </section>
-
         <div id="error-section" class="error-section hidden">
             <div class="error-message">
                 <span class="error-icon">❌</span>
                 <span id="error-text"></span>
             </div>
         </div>
-
-        <footer>
-            <div class="divider"></div>
-            <p class="footer-text">
-                🤖 Powered by Veo 3 Fast, GPT-4, and ElevenLabs<br>
-                <small>Videos are 8-24 seconds in 720p format</small>
-            </p>
-        </footer>
     </div>
-
     <!-- Configuration Modal -->
     <div id="config-modal" class="modal">
         <div class="modal-content">
@@ -109,7 +97,6 @@
             </p>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
