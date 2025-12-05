@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
         showConfigModal();
     }
     
+    // Load example videos from backend
+    loadExampleVideos();
+    
     // Event Listeners
     generateBtn.addEventListener('click', handleGenerate);
     downloadBtn.addEventListener('click', handleDownload);
@@ -65,8 +68,30 @@ function saveConfiguration() {
     BACKEND_URL = url.endsWith('/') ? url.slice(0, -1) : url;
     localStorage.setItem(CONFIG_KEY, BACKEND_URL);
     
+    // Load example videos with new backend URL
+    loadExampleVideos();
+    
     hideConfigModal();
     showSuccess('Configuration saved successfully!');
+}
+
+// Load Example Videos from Backend
+function loadExampleVideos() {
+    if (!BACKEND_URL) return;
+    
+    // Load first example video (final.mp4)
+    const video1Source = document.getElementById('example-video-1');
+    if (video1Source) {
+        video1Source.src = `${BACKEND_URL}/api/example-video/final.mp4`;
+        video1Source.parentElement.load();
+    }
+    
+    // Load second example video (2.mp4)
+    const video2Source = document.getElementById('example-video-2');
+    if (video2Source) {
+        video2Source.src = `${BACKEND_URL}/api/example-video/2.mp4`;
+        video2Source.parentElement.load();
+    }
 }
 
 // Main Generate Handler
