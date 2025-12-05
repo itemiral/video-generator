@@ -79,17 +79,19 @@ function saveConfiguration() {
 function loadExampleVideos() {
     if (!BACKEND_URL) return;
     
-    // Load first example video (final.mp4)
+    // Load first example video (final.mp4) with first frame as thumbnail
     const video1Source = document.getElementById('example-video-1');
     if (video1Source) {
-        video1Source.src = `${BACKEND_URL}/api/example-video/final.mp4`;
+        // Add #t=0.1 to load first frame as thumbnail
+        video1Source.src = `${BACKEND_URL}/api/example-video/final.mp4#t=0.1`;
         video1Source.parentElement.load();
     }
     
-    // Load second example video (2.mp4)
+    // Load second example video (2.mp4) with first frame as thumbnail
     const video2Source = document.getElementById('example-video-2');
     if (video2Source) {
-        video2Source.src = `${BACKEND_URL}/api/example-video/2.mp4`;
+        // Add #t=0.1 to load first frame as thumbnail
+        video2Source.src = `${BACKEND_URL}/api/example-video/2.mp4#t=0.1`;
         video2Source.parentElement.load();
     }
 }
