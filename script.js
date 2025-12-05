@@ -349,3 +349,32 @@ configModal.addEventListener('click', (e) => {
         }
     }
 });
+
+// Copy Citation Function
+function copyCitation() {
+    const citation = `@misc{temiraliev2025deepvideoresearcher,
+  title        = {DeepVideoResearcher: Adaptive Agentic System 
+                  for Retrieval Augmented Video Generation},
+  author       = {Temiraliev, Izat and Cheng, Serene and 
+                  Yang, Diji and Zhang, Yi},
+  year         = {2025},
+  institution  = {University of California, Santa Cruz},
+  note         = {Manuscript}
+}`;
+    
+    navigator.clipboard.writeText(citation).then(() => {
+        const btn = document.querySelector('.copy-citation-btn');
+        const originalHTML = btn.innerHTML;
+        
+        btn.innerHTML = '<span class="copy-icon">✓</span><span class="copy-text">Copied!</span>';
+        btn.style.background = 'rgba(46, 204, 113, 1)';
+        
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = 'rgba(46, 204, 113, 0.9)';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy citation:', err);
+        alert('Failed to copy citation. Please copy manually.');
+    });
+}
